@@ -1,0 +1,26 @@
+* {
+    font-family: Georgia, Serif;
+}
+
+#title {
+    font-family: Georgia, Serif;
+    font-style: italic;
+}
+
+nav {
+    border-top: 2px dotted rgba(84, 43, 187, 0.5);
+    border-bottom: 2px dotted rgba(84, 43, 187, 0.5);
+    background-color: aquamarine;
+    display: flex;
+}
+
+nav a {
+    padding: 1rem;
+    border: whitesmoke ridge 3px;
+    background-color: aqua;
+}
+
+nav a :hover {
+    font-weight: bold;
+    
+}

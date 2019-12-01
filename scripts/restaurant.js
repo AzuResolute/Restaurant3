@@ -17,12 +17,16 @@ class Restaurant {
             <h4 class="text-center">${this._phone}</h4>`;
     }
 
+    renderHome = () => {
+        document.getElementById("description").innerText = this._description;
+    }
+
 }
 
 // store
 
 let InakinKita = new Restaurant(
-    "Inakin Kita ",
+    "Inakin Kita",
     "Bacon ipsum dolor amet beef sausage swine doner porchetta, pig bacon t-bone alcatra drumstick ribeye boudin strip steak. Fatback kevin burgdoggen ground round corned beef, chislic porchetta pork chop pancetta. Beef ribs filet mignon buffalo jowl leberkas burgdoggen. Tenderloin bresaola cupim chislic meatball frankfurter. Pork chop porchetta swine shank biltong, corned beef ground round ribeye bresaola. Swine andouille pork loin jowl beef ribs bresaola.",
     "pictureURL",
     "8642 Nebula Street, Earth, Galaxy, Universe 00000",
@@ -36,6 +40,8 @@ switch(document.URL.split('/').find(entry => entry.indexOf("html") > 0))
 {
     case("home.html"):
         console.log("At home");
+        InakinKita.renderHome();
+
         break;
     case("menu.html"):
         console.log("At menu");
