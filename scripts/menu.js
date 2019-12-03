@@ -119,6 +119,6 @@ let drinks = [
 
 let menuItems = menu.map(item => item.Render()).join(' ');
 let drinkItems = ["<th colspan=\"2\">Beverages</th>"].concat(drinks.map(item => item.Render())).join(' ');
-console.log(drinkItems)
-document.getElementById("menu").innerHTML = menuItems;
+
+document.querySelector("#menu").innerHTML = menuItems;
 document.getElementById("drinks").innerHTML = drinkItems;
