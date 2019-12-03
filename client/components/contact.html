@@ -28,25 +28,25 @@
             <div class="row">
                 <div>Name:</div>
                 <div>
-                    <input type="text" name="name"/>
+                    <input type="text" name="name" required/>
                 </div>
             </div>
             <div class="row">
                 <div>Email:</div>
                 <div>
-                    <input type="text" name="email"/>
+                    <input type="text" name="email" required/>
                 </div>
             </div>
             <div class="row">
                 <div>Phone:</div>
                 <div>
-                    <input type="text" name="phone"/>
+                    <input type="text" name="phone" required/>
                 </div>
             </div>
             <div class="row">
                 <div>Reason for Inquiry:</div>
                 <div>
-                    <select name="reason">
+                    <select name="reason" required>
                         <option selected value="catering">Catering</option>
                         <option value="reserve">Private Party</option>
                         <option value="feedback">Feedback</option>
@@ -57,7 +57,7 @@
             <div class="row">
                 <div>Additional Information:</div>
                 <div>
-                    <textarea name="additional" rows="4"></textarea>
+                    <textarea name="additional" rows="4" required></textarea>
                 </div>
             </div>
             <div class="row">
@@ -70,14 +70,16 @@
             <div class="row">
                 <div>Best days to contact you:</div>
                 <div>
-                    <input type="checkbox" name="availability" value="mon" checked />M
+                    <input type="checkbox" name="availability" value="mon" />M
                     <input type="checkbox" name="availability" value="tue" />T
                     <input type="checkbox" name="availability" value="wed" />W
                     <input type="checkbox" name="availability" value="thu" />Th
                     <input type="checkbox" name="availability" value="fri" />F
                 </div>
             </div>
-    
+            <div>
+                <input type="submit"/>
+            </div>
 
         </form>
     </main>

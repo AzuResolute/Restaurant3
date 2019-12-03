@@ -7,6 +7,15 @@ class MenuItem {
         this._description = description;
         this._price = price;
     }
+
+    RenderMenuItem = () => {
+        return `<div class="col-12 col-md-6 col-lg-4 text-center">
+            <p class="item-title">${this._name}</p>
+            <p>${this._eyeCatcher}</p>
+            
+            <p>${this._price}</p>
+        </div>`
+    }
 }
 
 //store
@@ -83,3 +92,9 @@ let menu = [
 
 // program
 
+let menuItems = ""
+menu.forEach(item => {
+    console.log(item._description)
+    menuItems += item.RenderMenuItem()
+})
+document.getElementById("menu").innerHTML = menuItems;
