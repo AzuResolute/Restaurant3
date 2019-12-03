@@ -8,13 +8,31 @@ class MenuItem {
         this._price = price;
     }
 
-    RenderMenuItem = () => {
+    GetDescription = () => {
+        return this._description.map(desc => `<div>${desc}</div>`).join(' ');
+    }
+
+    Render = () => {
         return `<div class="col-12 col-md-6 col-lg-4 text-center">
             <p class="item-title">${this._name}</p>
             <p>${this._eyeCatcher}</p>
-            
-            <p>${this._price}</p>
+            ${this.GetDescription()}
+            <p>$${this._price.toFixed(2)}</p>
         </div>`
+    }
+}
+
+class DrinkItem {
+    constructor(name, price){
+        this._name = name;
+        this._price = price;
+    }
+
+    Render = () => {
+        return `<tr>
+            <td>${this._name}</td>
+            <td>$${this._price.toFixed(2)}</td>
+        </tr>`
     }
 }
 
@@ -90,11 +108,17 @@ let menu = [
 
 ]
 
+let drinks = [
+    new DrinkItem("Root Beer", 3),
+    new DrinkItem("Bottled Water", 1.25),
+    new DrinkItem("Lemonade", 1),
+    new DrinkItem("Iced Tea", 1.25)
+]
+
 // program
 
-let menuItems = ""
-menu.forEach(item => {
-    console.log(item._description)
-    menuItems += item.RenderMenuItem()
-})
+let menuItems = menu.map(item => item.Render()).join(' ');
+let drinkItems = ["<th colspan=\"2\">Beverages</th>"].concat(drinks.map(item => item.Render())).join(' ');
+console.log(drinkItems)
 document.getElementById("menu").innerHTML = menuItems;
+document.getElementById("drinks").innerHTML = drinkItems;

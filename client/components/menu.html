@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Menu</title>
+    <style>
+        h3 {
+            text-align: center;
+        }
+        #drinks {
+            display: flex;
+            justify-content: center;
+        }
+        tr:nth-child(2n+1){
+            background-color: aqua;
+        }
+        tr:nth-child(2n){
+            background-color: aquamarine;
+        }
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/restaurantStyles.css">
 </head>
@@ -24,10 +39,11 @@
         </nav>
     </header>
     <main>
+        <h3>Main Menu</h3>
         <div id="menu" class="row"></div>
-        <div id="drinks" class="row"></div>
+        <table id="drinks">
+        </table>
     </main>
-    <hr/>
     <footer>
     </footer>
     <script src="../../scripts/restaurant.js"></script>

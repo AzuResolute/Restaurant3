@@ -1,16 +1,26 @@
-* {
+/* General */
+
+*{
     font-family: Georgia, Serif;
+}
+
+h1 {
+    background-color: teal;
+    color: whitesmoke;
+    margin-bottom: 0;
+    padding: 2rem;
 }
 
 #title {
     font-family: Georgia, Serif;
     font-style: italic;
+    text-align: center;
 }
 
 nav {
     border-top: 2px dotted rgba(84, 43, 187, 0.5);
     border-bottom: 2px dotted rgba(84, 43, 187, 0.5);
-    background-color: aquamarine;
+    background-color: turquoise;
     display: flex;
 }
 
@@ -23,4 +33,11 @@ nav a {
 nav :hover {
     text-decoration: none;
     font-weight: bold;
+}
+
+footer {
+    background-color: turquoise;
+    margin-top: 1rem;
+    border-top: 2px dotted rgba(84, 43, 187, 0.5);
+    border-bottom: 2px dotted rgba(84, 43, 187, 0.5);
 }

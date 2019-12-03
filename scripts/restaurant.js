@@ -1,10 +1,9 @@
 // classes
 
 class Restaurant {
-    constructor(name, description, pictureUrl, address, phone) {
+    constructor(name, description, address, phone) {
         this._name = name;
         this._description = description;
-        this._pictureUrl = pictureUrl;
         this._address = address;
         this._phone = phone;
     }
@@ -28,7 +27,6 @@ class Restaurant {
 let InakinKita = new Restaurant(
     "Inakin Kita",
     "Bacon ipsum dolor amet beef sausage swine doner porchetta, pig bacon t-bone alcatra drumstick ribeye boudin strip steak. Fatback kevin burgdoggen ground round corned beef, chislic porchetta pork chop pancetta. Beef ribs filet mignon buffalo jowl leberkas burgdoggen. Tenderloin bresaola cupim chislic meatball frankfurter. Pork chop porchetta swine shank biltong, corned beef ground round ribeye bresaola. Swine andouille pork loin jowl beef ribs bresaola.",
-    "pictureURL",
     "8642 Nebula Street, Earth, Galaxy, Universe 00000",
     "123-456-7890");
 
