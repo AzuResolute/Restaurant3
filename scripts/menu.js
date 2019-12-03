@@ -24,7 +24,7 @@ let menu = [
         7.95
     ),
     new MenuItem(
-        "Hot Dog ab=nd Chips",
+        "Hot Dog and Chips",
         "An Summer Classic!",
         [
             "Your choice - white or wheat bun",
@@ -37,44 +37,46 @@ let menu = [
         "Italian Sausage and Peppers",
         "An All-Time Favorite!",
         [
-            "Your choice - mild orspicy Cole Slaw",
-            "Pickle, onion, tomato, and lettuce",
+            "Your choice - mild or spicy Cole Slaw",
             "Served with garlic mashers"
         ],
         10.95
     ),
 
     new MenuItem(
-        "Italian Sausage and Peppers",
-        "An All-Time Favorite!",
+        "Tenderloin Sandwich and Chips",
+        "Really Hits the Spot!",
         [
-            "Your choice - mild orspicy Cole Slaw",
+            "Plain or Sesame Seed Bun",
             "Pickle, onion, tomato, and lettuce",
-            "Served with garlic mashers"
+            "Served with our house-made chips"
         ],
-        10.95
+        8.95
     ),
 
     new MenuItem(
-        "Italian Sausage and Peppers",
-        "An All-Time Favorite!",
+        "House Salad",
+        "On the Lighter Side!",
         [
-            "Your choice - mild orspicy Cole Slaw",
-            "Pickle, onion, tomato, and lettuce",
-            "Served with garlic mashers"
+            "Your choice - with or without cheese",
+            "Iceberg Lettuce, tomatoes, peppers",
+            "Thousand Island or Ranch Dressing",
+            "Served with a dinner roll"
         ],
-        10.95
+        6.95
     ),
 
     new MenuItem(
-        "Italian Sausage and Peppers",
-        "An All-Time Favorite!",
+        "Brisket Sandwich and Fries",
+        "A Taste of Texas!",
         [
-            "Your choice - mild orspicy Cole Slaw",
-            "Pickle, onion, tomato, and lettuce",
-            "Served with garlic mashers"
+            "Smoked Brisket on thick-cut",
+            "Texas Toast",
+            "Cole Slaw",
+            "Served with our famous thick-cut",
+            "french fries"
         ],
-        10.95
+        7.95
     ),
 
 ]

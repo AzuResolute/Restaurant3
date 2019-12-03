@@ -20,7 +20,7 @@ nav a {
     background-color: aqua;
 }
 
-nav a :hover {
+nav :hover {
+    text-decoration: none;
     font-weight: bold;
-    
 }
