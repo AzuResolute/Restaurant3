@@ -114,7 +114,8 @@ let drinks = [
     new DrinkItem("Root Beer", 3),
     new DrinkItem("Bottled Water", 1.25),
     new DrinkItem("Lemonade", 1),
-    new DrinkItem("Iced Tea", 1.25)
+    new DrinkItem("Iced Tea", 1.25),
+    new DrinkItem("SG Special Brew", 4.99)
 ]
 
 // program
