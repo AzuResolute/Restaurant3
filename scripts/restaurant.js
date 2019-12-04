@@ -8,18 +8,42 @@ class Restaurant {
         this._phone = phone;
     }
     
-    renderGeneral = () => {
+    renderHeader = () => {
         document.getElementById("title").innerText = this._name;
+        let nav = document.getElementsByTagName("nav")[0];
+        nav.classList.add("navbar");
+        nav.classList.add("nav-tabs");
+        nav.innerHTML = 
+        `<a href="home.html" class="nav-item nav-link">
+            <i class="fa fa-lg fa-home"></i>
+        </a>
+        <a href="menu.html" class="nav-item nav-link">
+            <div>Menu</div>
+        </a>
+        <a href="contact.html" class="nav-item nav-link">
+            <div>Contact Us</div>
+        </a>`;
+    }
+    
+    renderFooter = () => {
         let footer = document.getElementsByTagName("footer")[0];
         footer.innerHTML=
-            `<h4 class="text-center">${this._address}</h4>
-            <h4 class="text-center">${this._phone}</h4>`;
+            `<div class="text-center">${this._address}</div>
+            <div class="text-center">${this._phone}</div>`;
     }
 
     renderHome = () => {
         document.getElementById("description").innerText = this._description;
     }
 
+    highlightActive = (current) => {
+        let pages = document.getElementsByTagName("a");
+        for(let x = 0; x < pages.length; x++){
+            if(current === pages[x].getAttribute("href")){
+                pages[x].classList.add("active");
+            }
+        }
+    }
 }
 
 // store
@@ -31,10 +55,14 @@ let InakinKita = new Restaurant(
     "123-456-7890");
 
 // index program
-InakinKita.renderGeneral();
+InakinKita.renderHeader();
+InakinKita.renderFooter();
+
+let currentPage = document.URL.split('/').find(entry => entry.indexOf("html") > 0);
+InakinKita.highlightActive(currentPage);
 
 // page program
-switch(document.URL.split('/').find(entry => entry.indexOf("html") > 0))
+switch(currentPage)
 {
     case("home.html"):
         console.log("At home");

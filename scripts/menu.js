@@ -9,15 +9,17 @@ class MenuItem {
     }
 
     GetDescription = () => {
-        return this._description.map(desc => `<div>${desc}</div>`).join(' ');
+        return this._description.map(desc => `<div class="card-text">${desc}</div>`).join(' ');
     }
 
     Render = () => {
-        return `<div class="col-12 col-md-6 col-lg-4 text-center">
-            <p class="item-title">${this._name}</p>
-            <p>${this._eyeCatcher}</p>
-            ${this.GetDescription()}
-            <p>$${this._price.toFixed(2)}</p>
+        return `<div class="card col-12 col-md-6 col-lg-4 text-center">
+            <div class="card-body">
+                <h4 class="card-title">${this._name}</h4>
+                <p class="card-subtitle">${this._eyeCatcher}</p>
+                ${this.GetDescription()}
+                <p class="card-text">$${this._price.toFixed(2)}</p>
+            </div>
         </div>`
     }
 }
@@ -118,7 +120,7 @@ let drinks = [
 // program
 
 let menuItems = menu.map(item => item.Render()).join(' ');
-let drinkItems = ["<th colspan=\"2\">Beverages</th>"].concat(drinks.map(item => item.Render())).join(' ');
+let drinkItems = ["<tr><th colspan=\"2\">Beverages</th></tr>"].concat(drinks.map(item => item.Render())).join(' ');
 
 document.querySelector("#menu").innerHTML = menuItems;
 document.getElementById("drinks").innerHTML = drinkItems;

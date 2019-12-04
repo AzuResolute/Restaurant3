@@ -17,17 +17,21 @@ h1 {
     text-align: center;
 }
 
-nav {
+.navbar {
     border-top: 2px dotted rgba(84, 43, 187, 0.5);
     border-bottom: 2px dotted rgba(84, 43, 187, 0.5);
     background-color: turquoise;
-    display: flex;
+    justify-content: flex-start;
 }
 
 nav a {
-    padding: 1rem;
+    margin: 0 1rem;
     border: whitesmoke ridge 3px;
     background-color: aqua;
+}
+
+nav a :visited {
+    color: salmon;
 }
 
 nav :hover {
@@ -35,8 +39,14 @@ nav :hover {
     font-weight: bold;
 }
 
+body{
+    background-color: skyblue;
+}
+
 footer {
     background-color: turquoise;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
     margin-top: 1rem;
     border-top: 2px dotted rgba(84, 43, 187, 0.5);
     border-bottom: 2px dotted rgba(84, 43, 187, 0.5);
