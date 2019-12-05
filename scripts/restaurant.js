@@ -1,11 +1,11 @@
 // classes
 
 class Announcement {
-    constructor(title, description, background, main = false){
+    constructor(title, description, background, isMain = false){
         this._title = title;
         this._description = description;
         this._background = background;
-        this._main = main;
+        this._isMain = isMain;
     }
 
     renderIndicator = (index) => {
@@ -44,6 +44,7 @@ class Restaurant {
 
     renderHome = () => {
         document.querySelector("#description").innerText = this._description;
+        this.renderJumbo();
     }
 
     renderNav = () => {
@@ -81,7 +82,14 @@ class Restaurant {
     }
 
     renderJumbo = () => {
-        
+        let highlight = this._announcements.find(a => a._isMain);
+        let header = document.getElementsByTagName("header")[0];
+        header.innerHTML += `<div class="jumbotron jumbotron-fluid py-4">
+            <div class="container">
+            <h1 class="display-4">${highlight._title}</h1>
+            <p class="lead">${highlight._description}</p>
+            </div>
+        </div>`
     }
 
     highlightActive = (current) => {
@@ -100,7 +108,8 @@ let announcements = [
     new Announcement(
         "New Location!",
         "Rockefeller Center, the Heart of NYC!",
-        "thing"
+        "thing",
+        true
     ),
     new Announcement(
         "Winter Menu!",
@@ -141,31 +150,3 @@ switch(currentPage)
     default:
         break;
 }
-
-// `<div id="announcements" class="carousel slide mt-2" data-ride="carousel">
-//         <ol class="carousel-indicators">
-//           <li data-target="#announcements" data-slide-to="0" class="active"></li>
-//           <li data-target="#announcements" data-slide-to="1"></li>
-//           <li data-target="#announcements" data-slide-to="2"></li>
-//         </ol>
-//         <div class="carousel-inner">
-//           <div class="carousel-item active">
-//             <h3 class="d-block w-100 text-center">TITLE</h3>
-//             <div class="d-block w-100 text-center">First Slide</div>
-//           </div>
-//           <div class="carousel-item">
-//             <img class="d-block w-100" src="..." alt="Second slide">
-//           </div>
-//           <div class="carousel-item">
-//             <img class="d-block w-100" src="..." alt="Third slide">
-//           </div>
-//         </div>
-//         <a class="carousel-control-prev" href="#announcements" role="button" data-slide="prev">
-//           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-//           <span class="sr-only">Previous</span>
-//         </a>
-//         <a class="carousel-control-next" href="#announcements" role="button" data-slide="next">
-//           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-//           <span class="sr-only">Next</span>
-//         </a>
-//       </div>`
