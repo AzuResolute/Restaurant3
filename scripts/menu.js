@@ -14,13 +14,13 @@ class MenuItem {
 
     Render = () => {
         return `<div class="card col-12 col-md-6 col-lg-4 text-center">
-            <div class="card-body">
-                <h4 class="card-title">${this._name}</h4>
-                <p class="card-subtitle">${this._eyeCatcher}</p>
-                ${this.GetDescription()}
-                <p class="card-text">$${this._price.toFixed(2)}</p>
-            </div>
-        </div>`
+                    <div class="card-body">
+                        <h4 class="card-title">${this._name}</h4>
+                        <p class="card-subtitle">${this._eyeCatcher}</p>
+                        ${this.GetDescription()}
+                        <p class="card-text">$${this._price.toFixed(2)}</p>
+                    </div>
+                </div>`
     }
 }
 
@@ -32,9 +32,9 @@ class DrinkItem {
 
     Render = () => {
         return `<tr>
-            <td>${this._name}</td>
-            <td>$${this._price.toFixed(2)}</td>
-        </tr>`
+                    <td>${this._name}</td>
+                    <td>$${this._price.toFixed(2)}</td>
+                </tr>`
     }
 }
 

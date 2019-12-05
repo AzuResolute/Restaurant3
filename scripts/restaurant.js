@@ -13,10 +13,12 @@ class Announcement {
     }
 
     renderInCarousel = (index) => {
-        return `<div class="carousel-item ${index === 0 ? `active` : ` `}">
-            <h3 class="d-block w-100 text-center">${this._title}</h3>
-            <div class="d-block w-100 text-center">${this._description}</div>
-        </div>`
+        return `<div
+                    class="carousel-item ${index === 0 ? `active` : ` `}"
+                    style="background: url(${this._background});">
+                    <h3 class="d-block w-100 text-center">${this._title}</h3>
+                    <div class="d-block w-100 text-center">${this._description}</div>
+                </div>`
     }
 }
 
@@ -37,7 +39,7 @@ class Restaurant {
     
     renderFooter = () => {
         let footer = document.getElementsByTagName("footer")[0];
-        footer.innerHTML=
+        footer.innerHTML +=
             `<div class="text-center">${this._address}</div>
             <div class="text-center">${this._phone}</div>`;
     }
@@ -49,47 +51,45 @@ class Restaurant {
 
     renderNav = () => {
         let nav = document.getElementsByTagName("nav")[0];
-        nav.innerHTML = 
-        `<a href="home.html" class="nav-item nav-link">
-            <i class="fa fa-lg fa-home"></i>
-        </a>
-        <a href="menu.html" class="nav-item nav-link">
-            <div>Menu</div>
-        </a>
-        <a href="contact.html" class="nav-item nav-link">
-            <div>Contact Us</div>
-        </a>`;
+        nav.innerHTML = `<a href="home.html" class="nav-item nav-link">
+                            <i class="fa fa-lg fa-home"></i>
+                        </a>
+                        <a href="menu.html" class="nav-item nav-link">
+                            <div>Menu</div>
+                        </a>
+                        <a href="contact.html" class="nav-item nav-link">
+                            <div>Contact Us</div>
+                        </a>`;
     }
 
     renderCarousel = () => {
         let header = document.getElementsByTagName("header")[0];
         header.innerHTML += `<div id="announcements" class="carousel slide mt-2" data-ride="carousel">
-        <ol class="carousel-indicators">
-        ${this._announcements.map((a, i) => a.renderIndicator(i)).join(' ')}
-        </ol>
-        <div class="carousel-inner">
-        ${this._announcements.map((a, i) => a.renderInCarousel(i)).join(' ')}
-        </div>
-        <a class="carousel-control-prev" href="#announcements" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#announcements" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>`
+                                <ol class="carousel-indicators">
+                                ${this._announcements.map((a, i) => a.renderIndicator(i)).join(' ')}
+                                </ol>
+                                <div class="carousel-inner">
+                                ${this._announcements.map((a, i) => a.renderInCarousel(i)).join(' ')}
+                                </div>
+                                <a class="carousel-control-prev" href="#announcements" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#announcements" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>`
     }
 
     renderJumbo = () => {
         let highlight = this._announcements.find(a => a._isMain);
-        let header = document.getElementsByTagName("header")[0];
-        header.innerHTML += `<div class="jumbotron jumbotron-fluid py-4">
-            <div class="container">
-            <h1 class="display-4">${highlight._title}</h1>
-            <p class="lead">${highlight._description}</p>
-            </div>
-        </div>`
+        let jumbo = document.getElementById('jumbo');
+        jumbo.innerHTML += `<div class="container">
+                                <h1 class="display-4">${highlight._title}</h1>
+                                <p class="lead">${highlight._description}</p>
+                            </div>`
+        jumbo.style.backgroundImage = `url(${highlight._background})`;
     }
 
     highlightActive = (current) => {
@@ -106,20 +106,20 @@ class Restaurant {
 
 let announcements = [
     new Announcement(
-        "New Location!",
-        "Rockefeller Center, the Heart of NYC!",
-        "thing",
+        "New Location - Paris, France",
+        "We are opening in Paris, a walking distance away from the Louvre. Visit us in summer 2020",
+        "../../public/assets/announcements/louvre.jpg",
         true
     ),
     new Announcement(
-        "Winter Menu!",
-        "Yakitori, Miso Ramen, and Rib Eye",
-        "thing"
+        "Seasonal Menu, with 4-courses Prix Fixe",
+        "Prixe Fix prepared by our guest chef, Mark Nobello",
+        "../../public/assets/announcements/special_menu.jpg"
     ),
     new Announcement(
         "Drink of the Month",
-        "The SG Special Brew",
-        "thing"
+        "The SG Special Brew - Ocean Experience - Included in our Special Menu",
+        "../../public/assets/announcements/special_drink.jpg"
     )
 ];
 
