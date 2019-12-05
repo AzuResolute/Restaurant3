@@ -1,13 +1,18 @@
 // classes
 
 class Announcement {
-    constructor(title, description, background){
+    constructor(title, description, background, main = false){
         this._title = title;
         this._description = description;
         this._background = background;
+        this._main = main;
     }
 
-    render = (index) => {
+    renderIndicator = (index) => {
+        return `<li data-target="#announcements" data-slide-to="${index}" ${index === 0 ? `class="active"` : ' '}></li>`
+    }
+
+    renderInCarousel = (index) => {
         return `<div class="carousel-item ${index === 0 ? `active` : ` `}">
             <h3 class="d-block w-100 text-center">${this._title}</h3>
             <div class="d-block w-100 text-center">${this._description}</div>
@@ -27,7 +32,7 @@ class Restaurant {
     renderHeader = () => {
         document.getElementById("title").innerText = this._name;
         this.renderNav();
-        this.renderAnnouncements();
+        this.renderCarousel();
     }
     
     renderFooter = () => {
@@ -38,7 +43,7 @@ class Restaurant {
     }
 
     renderHome = () => {
-        document.getElementById("description").innerText = this._description;
+        document.querySelector("#description").innerText = this._description;
     }
 
     renderNav = () => {
@@ -55,16 +60,14 @@ class Restaurant {
         </a>`;
     }
 
-    renderAnnouncements = () => {
+    renderCarousel = () => {
         let header = document.getElementsByTagName("header")[0];
         header.innerHTML += `<div id="announcements" class="carousel slide mt-2" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#announcements" data-slide-to="0" class="active"></li>
-          <li data-target="#announcements" data-slide-to="1"></li>
-          <li data-target="#announcements" data-slide-to="2"></li>
+        ${this._announcements.map((a, i) => a.renderIndicator(i)).join(' ')}
         </ol>
         <div class="carousel-inner">
-        ${this._announcements.map((a, i) => a.render(i)).join(' ')}
+        ${this._announcements.map((a, i) => a.renderInCarousel(i)).join(' ')}
         </div>
         <a class="carousel-control-prev" href="#announcements" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -75,6 +78,10 @@ class Restaurant {
           <span class="sr-only">Next</span>
         </a>
       </div>`
+    }
+
+    renderJumbo = () => {
+        
     }
 
     highlightActive = (current) => {
