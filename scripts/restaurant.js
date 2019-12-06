@@ -7,11 +7,7 @@ class Announcement {
         this._background = background;
         this._isMain = isMain;
     }
-
-    renderIndicator = (index) => {
-        return `<li data-target="#announcements" data-slide-to="${index}" ${index === 0 ? `class="active"` : ' '}></li>`
-    }
-
+    
     renderInCarousel = (index) => {
         return `<div
                     class="carousel-item ${index === 0 ? `active` : ` `}"
@@ -19,6 +15,10 @@ class Announcement {
                     <h3 class="d-block w-100 text-center">${this._title}</h3>
                     <div class="d-block w-100 text-center">${this._description}</div>
                 </div>`
+    }
+
+    renderIndicator = (index) => {
+        return `<li data-target="#announcements" data-slide-to="${index}" ${index === 0 ? `class="active"` : ' '}></li>`
     }
 }
 
@@ -45,9 +45,8 @@ class Restaurant {
     }
 
     getCarousel = () => {
-        let header = document.getElementsByTagName("header")[0];
-        header.innerHTML += `<div id="announcements" class="carousel slide mt-2" data-ride="carousel">
-                                <ol class="carousel-indicators">
+        let header = document.getElementById("announcements");
+        header.innerHTML = `<ol class="carousel-indicators">
                                 ${this._announcements.map((a, i) => a.renderIndicator(i)).join(' ')}
                                 </ol>
                                 <div class="carousel-inner">
@@ -60,8 +59,7 @@ class Restaurant {
                                 <a class="carousel-control-next" href="#announcements" role="button" data-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
-                                </a>
-                            </div>`
+                                </a>`
     }
 
     getJumbo = () => {

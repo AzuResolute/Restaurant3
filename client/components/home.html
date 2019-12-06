@@ -11,21 +11,32 @@
 </head>
 <body>
     <header>
+        <!-- rendered by restaurant.js, through Restaurant's renderHeader()  -->
         <h1 id="title"></h1>
-        <nav class="navbar nav-tabs"></nav>
+        <nav class="navbar nav-tabs">
+            <!-- populated through Restaurant's getNav() -->
+        </nav>
         <div
-            id="jumbo"
-            class="jumbotron jumbotron-fluid py-7 m-0"
-            style=
-                "opacity: 0.8;
-                color: white;
-                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"></div>
+        id="jumbo"
+        class="jumbotron jumbotron-fluid py-7 m-0"
+        style=
+            "opacity: 0.8;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+            <!-- populated through Restaurant's getJumbo() by finding main announcement -->    
+            <!-- The Jumbotron is specific to the HomePage,
+                so its getJumbo() is invoked through Restaurant's renderHome() -->    
+        </div>
+        <div id="announcements" class="carousel slide mt-2" data-ride="carousel">
+            <!-- populated through Restaurant's getCarousel(), looping through Announcement[] -->
+        </div>           
     </header>
     <main style=
         "display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 1rem;">
+        <!-- rendered by restaurant.js, through Restaurant's renderHome() -->
         <img style=
             "width: 450px;
             height: 150px;"
@@ -33,6 +44,7 @@
         <p id="description" style="max-width: 450px;"></p>
     </main>
     <footer>
+        <!-- rendered by restaurant.js, through Restaurant's renderFooter()  -->
         <div class="text-center"><em>This site is best viewed with JavaScript enabled</em></div>
     </footer>
     <script src="../../scripts/restaurant.js"></script>

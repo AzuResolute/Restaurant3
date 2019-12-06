@@ -1,5 +1,3 @@
-// validate forms
-
 let IsValid = () => {
     let {name, email, phone} = document.contact;
     let validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
