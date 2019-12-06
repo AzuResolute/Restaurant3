@@ -39,9 +39,8 @@ class Restaurant {
     
     renderFooter = () => {
         let footer = document.getElementsByTagName("footer")[0];
-        footer.innerHTML +=
-            `<div class="text-center">${this._address}</div>
-            <div class="text-center">${this._phone}</div>`;
+        footer.innerHTML += `<div class="text-center">${this._address}</div>
+                            <div class="text-center">${this._phone}</div>`;
     }
 
     renderHome = () => {
@@ -83,18 +82,19 @@ class Restaurant {
     }
 
     renderJumbo = () => {
-        let highlight = this._announcements.find(a => a._isMain);
+        let {_title, _description, _background} = this._announcements.find(a => a._isMain);
         let jumbo = document.getElementById('jumbo');
         jumbo.innerHTML += `<div class="container">
-                                <h1 class="display-4">${highlight._title}</h1>
-                                <p class="lead">${highlight._description}</p>
+                                <h1 class="display-4">${_title}</h1>
+                                <p class="lead">${_description}</p>
                             </div>`
-        jumbo.style.backgroundImage = `url(${highlight._background})`;
+        jumbo.style.backgroundImage = `url(${_background})`;
     }
 
     highlightActive = (current) => {
         let pages = document.getElementsByTagName("a");
         for(let x = 0; x < pages.length; x++){
+            let thing = pages[x].getAttribute("href");
             if(current === pages[x].getAttribute("href")){
                 pages[x].classList.add("active");
             }

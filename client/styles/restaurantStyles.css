@@ -4,22 +4,23 @@
     font-family: Georgia, Serif;
 }
 
-h1 {
+#title {
+    font-size: 64px;
+    font-family: 'Lobster', cursive;
+    text-align: center;
     color: whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     margin-bottom: 0;
     padding: 2rem;
-}
-
-#title {
-    font-family: Georgia, Serif;
-    font-style: italic;
-    text-align: center;
+    background: url("../../public/assets/InakinKita.jpg");
+    background-size: cover;
 }
 
 .navbar {
     border-top: 2px dotted rgba(84, 43, 187, 0.5);
     border-bottom: 2px dotted rgba(84, 43, 187, 0.5);
     background-color: turquoise;
+    opacity: 0.8;
     justify-content: flex-start;
 }
 
