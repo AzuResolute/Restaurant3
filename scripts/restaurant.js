@@ -89,11 +89,11 @@ class Restaurant {
         this.getJumbo();
     }
 
-    highlightActive = (current) => {
+    highlightActiveTab = (active) => {
         let pages = document.getElementsByTagName("a");
         for(let x = 0; x < pages.length; x++){
-            let thing = pages[x].getAttribute("href");
-            if(current === pages[x].getAttribute("href")){
+            let tab = pages[x].getAttribute("href");
+            if(active === tab){
                 pages[x].classList.add("active");
             }
         }
@@ -132,11 +132,11 @@ let InakinKita = new Restaurant(
 InakinKita.renderHeader();
 InakinKita.renderFooter();
 
-let currentPage = document.URL.split('/').find(e => e.indexOf("html") > 0);
-InakinKita.highlightActive(currentPage);
+let activePage = document.URL.split('/').find(e => e.indexOf("html") > 0);
+InakinKita.highlightActiveTab(activePage);
 
 // page program
-switch(currentPage)
+switch(activePage)
 {
     case("home.html"):
         InakinKita.renderHome();
