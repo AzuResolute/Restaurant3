@@ -7,15 +7,15 @@ let IsValid = () => {
     
     if(name.value === "" ) {
         name.focus() ;
-        alert("Invalid Name");
+        alert("Invalid Name - Please fill");
         return false;
     } else if (email.value === "" || !validEmail.test(email.value)) {
         email.focus();
-        alert("Invalid Email");
+        alert("Invalid Email - Please use the abc@xyz format");
         return false;
     } else if (phone.value === "" || !validPhone.test(phone.value)) {
         email.focus();
-        alert("Invalid Phone");
+        alert("Invalid Phone - Please use either (###)###-#### or ###-###-#### formats");
         return false;
     } else {
         return true;
