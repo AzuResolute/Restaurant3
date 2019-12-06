@@ -30,25 +30,8 @@ class Restaurant {
         this._phone = phone;
         this._announcements = announcements
     }
-    
-    renderHeader = () => {
-        document.getElementById("title").innerText = this._name;
-        this.renderNav();
-        this.renderCarousel();
-    }
-    
-    renderFooter = () => {
-        let footer = document.getElementsByTagName("footer")[0];
-        footer.innerHTML += `<div class="text-center">${this._address}</div>
-                            <div class="text-center">${this._phone}</div>`;
-    }
 
-    renderHome = () => {
-        document.querySelector("#description").innerText = this._description;
-        this.renderJumbo();
-    }
-
-    renderNav = () => {
+    getNav = () => {
         let nav = document.getElementsByTagName("nav")[0];
         nav.innerHTML = `<a href="home.html" class="nav-item nav-link">
                             <i class="fa fa-lg fa-home"></i>
@@ -61,7 +44,7 @@ class Restaurant {
                         </a>`;
     }
 
-    renderCarousel = () => {
+    getCarousel = () => {
         let header = document.getElementsByTagName("header")[0];
         header.innerHTML += `<div id="announcements" class="carousel slide mt-2" data-ride="carousel">
                                 <ol class="carousel-indicators">
@@ -81,7 +64,7 @@ class Restaurant {
                             </div>`
     }
 
-    renderJumbo = () => {
+    getJumbo = () => {
         let {_title, _description, _background} = this._announcements.find(a => a._isMain);
         let jumbo = document.getElementById('jumbo');
         jumbo.innerHTML += `<div class="container">
@@ -89,6 +72,23 @@ class Restaurant {
                                 <p class="lead">${_description}</p>
                             </div>`
         jumbo.style.backgroundImage = `url(${_background})`;
+    }
+
+    renderHeader = () => {
+        document.getElementById("title").innerText = this._name;
+        this.getNav();
+        this.getCarousel();
+    }
+    
+    renderFooter = () => {
+        let footer = document.getElementsByTagName("footer")[0];
+        footer.innerHTML += `<div class="text-center">${this._address}</div>
+                            <div class="text-center">${this._phone}</div>`;
+    }
+
+    renderHome = () => {
+        document.querySelector("#description").innerText = this._description;
+        this.getJumbo();
     }
 
     highlightActive = (current) => {
@@ -134,7 +134,7 @@ let InakinKita = new Restaurant(
 InakinKita.renderHeader();
 InakinKita.renderFooter();
 
-let currentPage = document.URL.split('/').find(entry => entry.indexOf("html") > 0);
+let currentPage = document.URL.split('/').find(e => e.indexOf("html") > 0);
 InakinKita.highlightActive(currentPage);
 
 // page program

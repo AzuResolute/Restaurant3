@@ -8,16 +8,16 @@ class MenuItem {
         this._price = price;
     }
 
-    GetDescription = () => {
-        return this._description.map(desc => `<div class="card-text">${desc}</div>`).join(' ');
+    getDescription = () => {
+        return this._description.map(d => `<div class="card-text">${d}</div>`).join(' ');
     }
 
-    Render = () => {
+    render = () => {
         return `<div class="card col-12 col-md-6 col-lg-4 text-center">
                     <div class="card-body">
                         <h4 class="card-title">${this._name}</h4>
                         <p class="card-subtitle">${this._eyeCatcher}</p>
-                        ${this.GetDescription()}
+                        ${this.getDescription()}
                         <p class="card-text">$${this._price.toFixed(2)}</p>
                     </div>
                 </div>`
@@ -30,7 +30,7 @@ class DrinkItem {
         this._price = price;
     }
 
-    Render = () => {
+    render = () => {
         return `<tr>
                     <td>${this._name}</td>
                     <td>$${this._price.toFixed(2)}</td>
@@ -120,8 +120,8 @@ let drinks = [
 
 // program
 
-let menuItems = menu.map(item => item.Render()).join(' ');
-let drinkItems = ["<tr><th colspan=\"2\">Beverages</th></tr>"].concat(drinks.map(item => item.Render())).join(' ');
+let menuItems = menu.map(i => i.render()).join(' ');
+let drinkItems = ["<tr><th colspan=\"2\">Beverages</th></tr>"].concat(drinks.map(i => i.render())).join(' ');
 
 document.querySelector("#menu").innerHTML = menuItems;
 document.getElementById("drinks").innerHTML = drinkItems;
