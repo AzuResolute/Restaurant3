@@ -48,18 +48,18 @@ class Restaurant {
         let header = document.getElementById("announcements");
         header.innerHTML = `<ol class="carousel-indicators">
                                 ${this._announcements.map((a, i) => a.renderIndicator(i)).join(' ')}
-                                </ol>
-                                <div class="carousel-inner">
+                            </ol>
+                            <div class="carousel-inner">
                                 ${this._announcements.map((a, i) => a.renderInCarousel(i)).join(' ')}
-                                </div>
-                                <a class="carousel-control-prev" href="#announcements" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#announcements" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>`
+                            </div>
+                            <a class="carousel-control-prev" href="#announcements" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#announcements" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>`
     }
 
     getJumbo = () => {
@@ -128,14 +128,14 @@ let InakinKita = new Restaurant(
     "123-456-7890",
     announcements);
 
-// index program
+// all pages program
 InakinKita.renderHeader();
 InakinKita.renderFooter();
 
 let activePage = document.URL.split('/').find(e => e.indexOf("html") > 0);
 InakinKita.highlightActiveTab(activePage);
 
-// page program
+// spec page program
 switch(activePage)
 {
     case("home.html"):
